@@ -35,4 +35,46 @@ class UserController extends Controller
             ]
         );
     }
+
+    public function store(Request $request)
+    {
+        $createUser = $this->userService->createUser($request);
+
+        if ($createUser) {
+            return response()->apiSuccess(
+                [
+                    'message' => 'Create Success',
+                    'code' => Response::HTTP_OK
+                ]
+            );
+        }
+
+        return response()->apiSuccess(
+            [
+                'message' => 'Create Fail',
+                'code' => Response::HTTP_OK
+            ]
+        );
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $updateUser = $this->userService->updateUser($request);
+
+        if ($updateUser) {
+            return response()->apiSuccess(
+                [
+                    'message' => 'Update Success',
+                    'code' => Response::HTTP_OK
+                ]
+            );
+        }
+
+        return response()->apiSuccess(
+            [
+                'message' => 'Update Fail',
+                'code' => Response::HTTP_OK
+            ]
+        );
+    }
 }
