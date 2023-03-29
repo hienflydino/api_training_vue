@@ -43,4 +43,17 @@ class UserService
             return false;
         }
     }
+
+    public function deleteUser($user)
+    {
+        try {
+            $user->delete();
+
+            return true;
+        } catch (Exception $e) {
+            Log::error($e);
+        
+            return false;
+        }
+    }
 }

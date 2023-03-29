@@ -78,4 +78,25 @@ class UserController extends Controller
             ]
         );
     }
+
+    public function destroy(User $user)
+    {
+        $deleteUser = $this->userService->deleteUser($user);
+
+        if ($deleteUser) {
+            return response()->apiSuccess(
+                [
+                    'message' => 'Delete Success',
+                    'code' => Response::HTTP_OK
+                ]
+            );
+        }
+
+        return response()->apiSuccess(
+            [
+                'message' => 'Delete Fail',
+                'code' => Response::HTTP_OK
+            ]
+        );
+    }
 }
