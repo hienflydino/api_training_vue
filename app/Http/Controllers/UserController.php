@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Services\UserService;
 use Illuminate\Http\Response;
@@ -59,7 +60,7 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $updateUser = $this->userService->updateUser($request);
+        $updateUser = $this->userService->updateUser($request, $user);
 
         if ($updateUser) {
             return response()->apiSuccess(
