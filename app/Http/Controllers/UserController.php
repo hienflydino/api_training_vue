@@ -23,6 +23,7 @@ class UserController extends Controller
             return response()->apiSuccess(
                 [
                     'data' => UserResource::apiPaginate($listUser, $request),
+                    'success' => true,
                     'message' => 'Success',
                     'code' => Response::HTTP_OK
                 ]
@@ -32,6 +33,7 @@ class UserController extends Controller
         return response()->apiSuccess(
             [
                 'message' => 'Not found',
+                'success' => false,
                 'code' => Response::HTTP_OK
             ]
         );
@@ -44,6 +46,7 @@ class UserController extends Controller
         if ($createUser) {
             return response()->apiSuccess(
                 [
+                    'success' => true,
                     'message' => 'Create Success',
                     'code' => Response::HTTP_OK
                 ]
@@ -52,6 +55,7 @@ class UserController extends Controller
 
         return response()->apiSuccess(
             [
+                'success' => false,
                 'message' => 'Create Fail',
                 'code' => Response::HTTP_OK
             ]
@@ -65,6 +69,7 @@ class UserController extends Controller
         if ($updateUser) {
             return response()->apiSuccess(
                 [
+                    'success' => true,
                     'message' => 'Update Success',
                     'code' => Response::HTTP_OK
                 ]
@@ -73,6 +78,7 @@ class UserController extends Controller
 
         return response()->apiSuccess(
             [
+                'success' => false,
                 'message' => 'Update Fail',
                 'code' => Response::HTTP_OK
             ]
@@ -86,6 +92,7 @@ class UserController extends Controller
         if ($deleteUser) {
             return response()->apiSuccess(
                 [
+                    'success' => true,
                     'message' => 'Delete Success',
                     'code' => Response::HTTP_OK
                 ]
@@ -94,6 +101,7 @@ class UserController extends Controller
 
         return response()->apiSuccess(
             [
+                'success' => false,
                 'message' => 'Delete Fail',
                 'code' => Response::HTTP_OK
             ]
