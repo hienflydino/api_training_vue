@@ -39,6 +39,28 @@ class UserController extends Controller
         );
     }
 
+    public function show(User $user, Request $request)
+    {
+        if ($user) {
+            return response()->apiSuccess(
+                [
+                    'data' => $user,
+                    'success' => true,
+                    'message' => 'Success',
+                    'code' => Response::HTTP_OK
+                ]
+            );
+        }
+
+        return response()->apiSuccess(
+            [
+                'message' => 'Not found',
+                'success' => false,
+                'code' => Response::HTTP_OK
+            ]
+        );
+    }
+
     public function store(Request $request)
     {
         $createUser = $this->userService->createUser($request);
