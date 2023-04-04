@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Services\UserService;
 use Illuminate\Http\Response;
 use App\Http\Resources\UserResource;
+use Illuminate\Http\Response as ResponseHttp;
 
 class UserController extends Controller
 {
@@ -30,7 +31,7 @@ class UserController extends Controller
             );
         }
 
-        return response()->apiSuccess(
+        return response()->apiErrors(
             [
                 'message' => 'Not found',
                 'success' => false,
@@ -52,7 +53,7 @@ class UserController extends Controller
             );
         }
 
-        return response()->apiSuccess(
+        return response()->apiErrors(
             [
                 'message' => 'Not found',
                 'success' => false,
@@ -75,7 +76,7 @@ class UserController extends Controller
             );
         }
 
-        return response()->apiSuccess(
+        return response()->apiErrors(
             [
                 'success' => false,
                 'message' => 'Create Fail',
@@ -98,7 +99,7 @@ class UserController extends Controller
             );
         }
 
-        return response()->apiSuccess(
+        return response()->apiErrors(
             [
                 'success' => false,
                 'message' => 'Update Fail',
@@ -121,7 +122,7 @@ class UserController extends Controller
             );
         }
 
-        return response()->apiSuccess(
+        return response()->apiErrors(
             [
                 'success' => false,
                 'message' => 'Delete Fail',
